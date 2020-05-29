@@ -8,3 +8,9 @@ const instance = axios.create({
     }
 })
 
+export const authAPI = {
+    registration(userId, name, email, password) {
+        return instance.post(`auth/registration/`, { userId, name, email, password });
+    }
+}
+

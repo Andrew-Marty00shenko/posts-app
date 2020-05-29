@@ -14,13 +14,6 @@ const Posts = (props) => {
         props.addPost(values.newPostElement)
     }
 
-    const getUsers = () => {
-        Axios.get('https://server-expres.herokuapp.com/users/all/')
-            .then(res => {
-                console.log(res);
-            })
-    }
-
     return (
         <>
             <div className="posts">
@@ -29,7 +22,6 @@ const Posts = (props) => {
             {props.posts.map(p => {
                 return <li className="post" key={p.id}>{p.title}</li>
             })}
-            <button onClick={getUsers}>get</button>
         </>
     )
 }
