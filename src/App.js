@@ -9,11 +9,12 @@ import Authorize from './components/Login/Authorize'
 const App = () => {
   return (
     <>
-      <Route exact path="/" render={() => <Authorize />} />
-      <Route exact path="/registration" render={() => <Registration />} />
 
       <div className="wrapper">
         <div className="app-wrapper">
+          <Route exact path="/" render={() => <Authorize />} />
+          <Route path="/registration" render={() => <Registration />} />
+
           <Route path="/profile" component={NavBar} />
           <Route path="/profile" render={() => <Profile />} />
           <Route path="/profile/posts" render={() => <PostsContainer />} />

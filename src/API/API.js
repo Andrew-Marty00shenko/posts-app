@@ -1,16 +1,16 @@
 import * as axios from 'axios'
 
 const instance = axios.create({
-    withCredentials: true,
+    // withCredentials: true,
     baseURL: 'https://server-expres.herokuapp.com/',
     headers: {
-        // "API-KEY": "4e31a0ed-9880-4ca3-ae59-5ae67644162b"
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
     }
 })
 
 export const authAPI = {
-    registration(userId, name, email, password) {
-        return instance.post(`auth/registration/`, { userId, name, email, password });
+    registration(name, email, password) {
+        return instance.post('auth/registration'), { name, email, password }
     }
 }
-
