@@ -1,33 +1,30 @@
 import React from 'react';
-import './Registration.scss'
+import './Login.scss'
 import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
-import { userRegist } from '../../redux/auth-reducer';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import { required } from '../utils/validators';
 import { Input } from '../../Common/FormControls/FormControls'
+import { userLog } from '../../redux/auth-reducer';
 
-const Registration = (props) => {
+const Login = (props) => {
     const onSubmit = (formData) => {
-        props.userRegist(formData.name, formData.email, formData.password);
+        props.userLog(formData.email, formData.password);
     }
 
     return (
-        <div className="registration">
-            <h1>Registration</h1>
-            <NavLink to='/'>SignIn</NavLink>
-            <ReduxRegistrationForm onSubmit={onSubmit} />
+        <div className="login">
+            <h1>Login</h1>
+            <NavLink to='/registration'>SignUp</NavLink>
+            <ReduxLoginForm onSubmit={onSubmit} />
         </div>
     )
 }
 
-const RegistrationForm = (props) => {
+const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <div>
-                <Field component={Input} placeholder="name*" name="name" validate={[required]} />
-            </div>
             <div>
                 <Field component={Input} type="email*" placeholder="email" name="email" validate={[required]} />
             </div>
@@ -35,13 +32,13 @@ const RegistrationForm = (props) => {
                 <Field component={Input} type="password" placeholder="password*" name="password" validate={[required]} />
             </div>
             <Button variant="contained" type="submit">
-                SignUp
+                SignIn
                 </Button>
         </form>
     )
 }
 
-const ReduxRegistrationForm = reduxForm({ form: "registration" })(RegistrationForm)
+const ReduxLoginForm = reduxForm({ form: "login" })(LoginForm)
 
 let mapStateToProps = (state) => {
     return {
@@ -49,4 +46,4 @@ let mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { userRegist })(Registration)
+export default connect(mapStateToProps, { userLog })(Login)

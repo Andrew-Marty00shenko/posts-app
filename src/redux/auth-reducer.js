@@ -1,4 +1,4 @@
-import { authAPI } from "../API/API";
+import Axios from "axios";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 
@@ -6,7 +6,6 @@ let initialState = {
     name: null,
     email: null,
     password: null,
-    isAuth: false
 }
 
 const authReducer = (state = initialState, action) => {
@@ -21,20 +20,31 @@ const authReducer = (state = initialState, action) => {
     }
 }
 
-export const setAuthUserData = (name, email, password) => ({
-    type: SET_USER_DATA,
-    data: { name, email, password }
-});
+export const regUser = (name, email, password) => ({ type: SET_USER_DATA, data: { name, email, password } });
 
-export const registration = (name, email, password) => {
-    return (dispatch) => {
-        authAPI.registration(name, email, password)
-            .then(res => {
-                if (res.data) {
-                    dispatch(setAuthUserData())
-                }
+export const userRegist = (name, email, password) => {
+    return dispatch => {
+        return Axios.post('https://server-expres.herokuapp.com/auth/registration',
+            { name, email, password }
+        ).then(res => console.log(res))
+            .then(data => {
+                console.log(data)
+                dispatch(regUser(data.data));
             })
     }
 }
+
+export const userLog = (email, password) => {
+    return dispatch => {
+        return Axios.post('https://server-expres.herokuapp.com/auth/registration',
+            { email, password }
+        ).then(res => console.log(res))
+            .then(data => {
+                console.log(data)
+                dispatch(regUser(data));
+            })
+    }
+}
+
 
 export default authReducer;
