@@ -6,6 +6,7 @@ import UsersContainer from '../Users/UsersContainer';
 
 
 const Profile = (props) => {
+
     return (
         <div className="wr">
             <div className="profile">
@@ -14,7 +15,7 @@ const Profile = (props) => {
                 </div>
                 <div className="profile-info">
                     <div className="profile-info__user">
-                        <h2>NAME: </h2>
+                        <h2>NAME: {props.profile ? props.profile.user.name : null}  </h2>
                     </div>
                     <Button variant="contained" color="primary">
                         <NavLink to="/profile/posts">show my posts</NavLink>

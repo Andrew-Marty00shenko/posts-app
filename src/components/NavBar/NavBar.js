@@ -6,8 +6,9 @@ import Logo from '../../assets/facebook.svg'
 import SearchIcon from '../../assets/search.svg'
 import HomeIcon from '../../assets/home.svg'
 import PostIcon from '../../assets/posts.svg'
+import { connect } from 'react-redux'
 
-const NavBar = () => {
+const NavBar = (props) => {
     return (
         <ul className="navbar">
             <div className="navbar-logo">
@@ -29,11 +30,17 @@ const NavBar = () => {
                     </NavLink>
                 </li>
                 <li className="navbar-links__profile">
-                    <NavLink to='/profile'>da</NavLink>
+                    <NavLink to='/profile'>{props.profile ? props.profile.user.name : null}</NavLink>
                 </li>
             </div>
         </ul>
     )
 }
 
-export default NavBar
+const mapStateToProps = (state) => {
+    return {
+        profile: state.profilePage.profile
+    }
+}
+
+export default connect(mapStateToProps, null)(NavBar)

@@ -39,7 +39,6 @@ class Registration extends Component {
             password: this.state.password
         }).then(res => {
             console.log(res);
-            return <Redirect to="/" />
         }).catch(error => {
             console.log(error)
         })
