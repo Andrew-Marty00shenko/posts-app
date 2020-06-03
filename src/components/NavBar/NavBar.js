@@ -29,7 +29,7 @@ const NavBar = () => {
                     </NavLink>
                 </li>
                 <li className="navbar-links__profile">
-                    <NavLink to="/profile"></NavLink>
+                    <NavLink to='/profile'>da</NavLink>
                 </li>
             </div>
         </ul>

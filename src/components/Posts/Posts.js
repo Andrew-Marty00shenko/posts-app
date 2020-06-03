@@ -6,7 +6,6 @@ import VideoIcon from '../../assets/video.svg'
 import MusicIcon from '../../assets/music.svg'
 import PhotoIcon from '../../assets/photo.svg'
 import { reduxForm, Field } from 'redux-form'
-import Axios from 'axios'
 
 const Posts = (props) => {
 
@@ -14,13 +13,15 @@ const Posts = (props) => {
         props.addPost(values.newPostElement)
     }
 
+
+
     return (
         <>
             <div className="posts">
                 <ReduxAddMessageForm onSubmit={addingPost} />
             </div>
             {props.posts.map(p => {
-                return <li className="post" key={p.id}>{p.title}</li>
+                return <li className="post" key={p.id}></li>
             })}
         </>
     )

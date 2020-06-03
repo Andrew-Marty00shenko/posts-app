@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import Profile from './components/Profile/Profile'
 import PostsContainer from './components/Posts/PostsContainer'
@@ -9,7 +9,6 @@ import Login from './components/Login/Login'
 const App = () => {
   return (
     <>
-
       <div className="wrapper">
         <div className="app-wrapper">
           <Route exact path="/" render={() => <Login />} />

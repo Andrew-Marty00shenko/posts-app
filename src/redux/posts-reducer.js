@@ -1,9 +1,7 @@
 const ADD_POST = 'ADD_POST'
 
 let initialState = {
-    posts: [
-        { id: 1, title: "Hey" }
-    ]
+    posts: []
 }
 
 const postsReducer = (state = initialState, action) => {
@@ -12,7 +10,7 @@ const postsReducer = (state = initialState, action) => {
             let newPost = action.newPostElement;
             return {
                 ...state,
-                posts: [...state.posts, { id: state.posts[state.posts.length - 1] + 1, title: newPost }]
+                posts: newPost
             }
         }
         default: {
@@ -24,5 +22,8 @@ const postsReducer = (state = initialState, action) => {
 }
 
 export const addPost = (newPostElement) => ({ type: ADD_POST, newPostElement });
+
+
+
 
 export default postsReducer
