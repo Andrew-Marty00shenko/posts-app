@@ -1,0 +1,96 @@
+.menu{
+    width: 200px;
+    padding: 10px;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    text-transform: capitalize;
+
+    &-title{
+        margin: 30px 20px;
+        display: flex;
+        align-items: center;
+        font-size: 17px;
+        font-weight: 500;
+
+        svg{
+            margin-right: 5px;
+        }
+    }
+
+    &-items{
+        margin: 0px 0px 30px 10px;
+        font-weight: 500;
+    }
+
+    &-item{
+        padding: 8px 12px;
+        margin: 5px 10px 0px 0px;
+        cursor: pointer;
+        display: flex;
+        position: relative;
+        align-items: center;
+
+        img{
+            position: absolute;
+            right: 5px;
+            height: 20px;
+            opacity: 0;
+        }
+
+        &:hover{
+            background: #FFFFFF;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        &:hover img{
+            opacity: 0.3;
+        }
+
+        img:hover{
+            opacity: 1;
+        }
+
+    }
+
+    .color{
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+
+    .color.purple{
+        background-color: purple;
+    }
+
+    .color.orange{
+        background-color: orange;
+    }
+
+    .color.black{
+        background-color: black;
+    }
+
+    .color.blue{
+        background-color: blue;
+    }
+
+    .color.gray{
+        background-color: gray;
+    }
+
+    .color.green{
+        background-color: green;
+    }
+
+    .color.cyan{
+        background-color: cyan;
+    }
+
+    .color.pink{
+        background-color: pink;
+    }
+}

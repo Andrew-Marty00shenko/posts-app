@@ -1,24 +1,15 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
-import ProfileContainer from './components/Profile/ProfileContainer'
-import PostsContainer from './components/Posts/PostsContainer'
-import Registration from './components/Login/Registration'
-import Login from './components/Login/Login'
+import React from 'react';
+import './App.scss';
+import Menu from './components/Menu/Menu';
+import { useSelector, shallowEqual } from 'react-redux';
 
 const App = () => {
+  const menuItems = useSelector(state => state.menu.items, shallowEqual);
+
   return (
-    <>
-      <div className="wrapper">
-        <div className="app-wrapper">
-          <Route exact path="/" render={() => <Login />} />
-          <Route path="/registration" render={() => <Registration />} />
-          <Route path="/profile" component={NavBar} />
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/profile/posts" render={() => <PostsContainer />} />
-        </div>
-      </div>
-    </>
+    <div className="app">
+      <Menu menuItems={menuItems} />
+    </div>
   )
 }
 

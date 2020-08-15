@@ -1,19 +1,10 @@
-import { combineReducers, createStore, applyMiddleware } from "redux";
-import profileReducer from "./profile-reducer";
-import postsReducer from "./posts-reducer";
-import authReducer from "./auth-reducer";
-import { reducer as formReducer } from 'redux-form';
-import thunkMiddleWare from 'redux-thunk'
-import usersReducer from "./users-reducer";
+import { combineReducers, createStore } from 'redux';
+import menuReducer from './reducers/menu';
 
-let reducers = combineReducers({
-    profilePage: profileReducer,
-    posts: postsReducer,
-    users: usersReducer,
-    form: formReducer,
-    auth: authReducer
+const reducers = combineReducers({
+    menu: menuReducer
 });
 
-let store = createStore(reducers, applyMiddleware(thunkMiddleWare));
+const store = createStore(reducers);
 
 export default store;
